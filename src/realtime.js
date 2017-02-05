@@ -55,12 +55,12 @@
         return Error(errorMessage)
       }
 
-      watchStore['name'] = {
+      watchStore[name] = {
         pushUrls: pushUrls,
         customCb: customCb
       }
 
-      return watchStore['name']
+      return watchStore[name]
     },
     // Function to add URLs to send pushes to.
     // name: string - The ID used to determine which watch to add the URLs to.
