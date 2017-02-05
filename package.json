@@ -1,0 +1,14 @@
+{
+  "name": "Realtime",
+  "version": "1.0.0",
+  "description": "Make your API streamable or pushable.",
+  "main": "./src/realtime.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Teancum Besendorfer",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
