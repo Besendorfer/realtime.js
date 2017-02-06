@@ -31,6 +31,11 @@
     },
     isFunction: function(fn) {
       return !!(fn && fn.constructor && fn.call && fn.apply)
+    },
+    removeArrayItems: function(arr, toRemove) {
+      return arr.filter(function (item) {
+        return toRemove.indexOf(item) === -1
+      })
     }
   }
 });
