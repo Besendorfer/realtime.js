@@ -27,7 +27,7 @@
       return Object.prototype.toString.call(str) === '[object String]'
     },
     isArray: function (arr) {
-      return arr && arr.constructor === Array
+      return !!(arr && arr.constructor === Array)
     },
     isFunction: function(fn) {
       return !!(fn && fn.constructor && fn.call && fn.apply)
