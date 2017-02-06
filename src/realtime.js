@@ -48,10 +48,10 @@
     incompatibleType: function (item, type, paramNum) {
       var postfixParam = paramNum ? ' - param: ' + paramNum : ''
 
-      if (getTypeCheckerFn(type)(item)) {
+      if (!getTypeCheckerFn(type)(item)) {
         var errorMessage = 'Incompatible type: ' + type + ' for ' + item + postfixParam
         console.error(errorMessage)
-        throw Error(errorMessage)
+        throw TypeError(errorMessage)
       }
 
       return false
