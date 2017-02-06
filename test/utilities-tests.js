@@ -80,5 +80,7 @@ describe('isFunction', () => {
 })
 
 describe('removeArrayItems', () => {
-  
+  it('should successfully remove desired items from an array', () => {
+    
+  })
 })
