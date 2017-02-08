@@ -5,8 +5,7 @@ describe('push', () => {
   describe('registerWatch', () => {
     it('should return the appropriate object containing the URL array and custom callback', () => {
       let watchObj = Realtime.push.registerWatch('watch me!', ['url1', 'url2'], () => { console.log('hello world!') })
-      assert.equal('url1', watchObj.pushUrls[0])
-      assert.equal('url2', watchObj.pushUrls[1])
+      assert.deepEqual(['url1', 'url2'], watchObj.pushUrls)
       assert.equal('() => { console.log(\'hello world!\') }', watchObj.customCb)
     })
 

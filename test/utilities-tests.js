@@ -81,6 +81,10 @@ describe('isFunction', () => {
 
 describe('removeArrayItems', () => {
   it('should successfully remove desired items from an array', () => {
-    
+    var array = ['a', 'b', 'c', 'd']
+    var toRemove = ['b', 'd']
+    var result = Utilities.removeArrayItems(array, toRemove)
+
+    assert.deepEqual(['a', 'c'], result)
   })
 })
