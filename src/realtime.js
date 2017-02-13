@@ -149,6 +149,40 @@
     // returns ->
     emit: function (name, result) {
       
+    },
+
+    // If it is so desired, ask the user for notifications.
+    // Note, the callback is required, and any code relying on the returned Promise must be inside that callback.
+    // For the callback function, there is a single parameter: result.
+    // The 'result' parameter will return with any of the following strings:
+    //   - 'granted'
+    //   - 'denied'
+    //   - 'default' // Meaning the request was dismissed, neither granted nor denied.
+
+    // This is the beginning of my working with service workers. Just figuring out the API.
+    // I'm not sure if I'll keep the mapping or not. I am just testing things out right now.
+
+    // I might need to use a third-party library for Node.js.
+
+    // Actually, I am realizing now that I really need to design this thing before implementing it. I'm thinking
+    // that I'll need to have separate front-end and back-end implementations of this thing. It won't need to be
+    // cross-platform compatible, because certain pieces of the library are for the front-end, and others are for
+    // the back-end.
+
+    // This was a nice proof-of-concept. Before continuing, however, I really need to design this.
+    enableNotifications: function (callback) {
+      // Instead of returning silly strings, instead return boolean values or null.
+      var resultMapping = {
+        'granted': true,
+        'denied': false,
+        'default': null
+      }
+      
+      var myCallback = function (result) {
+        callback(resultMapping[result])
+      }
+
+      Notification.requestPermission().then(myCallback)
     }
   }
 
