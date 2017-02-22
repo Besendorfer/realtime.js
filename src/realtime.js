@@ -9,12 +9,12 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['./utilities'], factory)
+    define(['./utilities', 'isomorphic-fetch', 'es6-promise'], factory)
   } else if (typeof module === 'object' && module.exports) {
     // Node. Does not work with strict CommonJS, but
     // only CommonJS-like environments that support module.exports,
     // like Node.
-    module.exports = factory(require('./utilities'))
+    module.exports = factory(require('./utilities'), require('isomorphic-fetch'), require('es6-promise'))
   } else {
     // Browser globals (root is window)
     root.Realtime = factory(root.Utilities)
@@ -147,8 +147,14 @@
     // name: string - The ID used to determine which watch should be alerted.
     // result: object - The result to send with the alert. Whatever data that should be passed to the user.
     // returns ->
-    emit: function (name, result) {
-      
+    alertWatch: function (name, result) {
+      try {
+        error.incompatibleType(name, 'string', 1)
+      } catch (e) {
+        return e
+      }
+
+
     }
   }
 
